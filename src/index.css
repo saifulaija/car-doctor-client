@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+     input{
+        @apply bg-slate-700
+     }
+
+    h1 {
+
+        @apply text-3xl font-bold text-teal-800 tracking-wide  uppercase border-b-red-400 max-w-md text-center  border-b-4
+
+     }
+}
