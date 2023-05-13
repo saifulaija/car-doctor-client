@@ -14,9 +14,9 @@ const Banner = () => {
         <div className=" absolute top-0 left-0   h-full bg-gradient-to-r rounded-lg from-[#151515] ">
          <div className="flex items-center mt-28 ">
          <div className="text-white  md:w-[50%] pl-8 space-y-6 h-full ">
-            <h1 className="text-5xl font-bold">
+            <h2 className=" text-lg md:text-5xl font-bold">
               Affordable Price For Car Servicing
-            </h1>
+            </h2>
             <p>
               There are many variations of passages of available, but the
               majority have suffered alteration in some form

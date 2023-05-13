@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { getAuth} from "firebase/auth";
+import SocilaLogin from "../Shared/SocilalLogin/SocilaLogin";
 
 
 
@@ -113,6 +114,7 @@ const Register = () => {
             </Link>
           </p>
           <p className="text-red-500">{error}</p>
+          <SocilaLogin></SocilaLogin>
         </form>
       </div>
     </div>

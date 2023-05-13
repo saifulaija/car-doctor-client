@@ -12,7 +12,7 @@ const About = () => {
         </div>
         <div className="lg:w-1/2 space-y-5">
             <h1 className="text-[#FF3811] font-bold tracking-widest text-2xl uppercase">about us</h1>
-          <h1 className="text-5xl font-bold">We are qualified & of experience in this field</h1>
+          <h2 className="text-5xl font-bold">We are qualified & of experience in this field</h2>
          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
          <p>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
           <button className="btn bg-[#FF3811]">Get More Info</button>

@@ -1,27 +1,40 @@
 // import login from "../../../src/assets/images/login";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/images/login/login.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import SocilaLogin from "../Shared/SocilalLogin/SocilaLogin";
 
 const Login = () => {
 
 	const [error, setError] = useState('')
 	const {signInUser} = useContext(AuthContext);
 	const navigate = useNavigate()
+  const location = useLocation()
+  
+  const from = location.state?.from?.pathname || '/';
+
+
 
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    
 	signInUser(email, password)
 	.then(result=>{
-		const loggedUser = result.user;
-		console.log(loggedUser);
-		form.reset()
-		navigate('/')
+		const user = result.user;
+   
+		console.log(user);
+    navigate(from,{replace: true});
+		
+		
+
+    // sent jwt data to db
+    
+
+
 	})
 	.catch(error=>{
 		setError(error.message)
@@ -72,14 +85,18 @@ const Login = () => {
                 <button className="btn btn-warning">Login</button>
               </div>
               <p>
-                Have you any account?
+                Are  you new to car-doctor?
                 <Link to="/register">
                   <button className="btn btn-link">Go to register</button>
                 </Link>
               </p>
+               
+                <p className="text-red-700">{error}</p>
+
+                <p className="text-green-600 font-semibold ">Social Login</p>
+                <SocilaLogin></SocilaLogin>
               
-              <button ><p  className="text-gray-600 font-bold border text-center bg-yellow-300 p-2 rounded-lg">  Sign In With Google</p></button>
-             <button><p className="text-gray-600 font-bold border text-center bg-yellow-300 p-2 rounded-lg">  Sign In With GitHub</p></button>
+             
             </form>
       </div>
     </div>

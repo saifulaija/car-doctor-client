@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
@@ -7,7 +7,12 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
-    logOut();
+    logOut()
+   .then(()=>{
+   
+   })
+   .catch(error => console.log(error))
+
   };
   // const navItems = <>
   {
@@ -24,7 +29,7 @@ const Navbar = () => {
   // </>
 
   return (
-    <div className="navbar bg-base-100 h-24 mb-6 sticky top-0 z-10">
+    <div className="navbar bg-gray-600 h-32 mb-6 sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -59,7 +64,7 @@ const Navbar = () => {
           {/* {navItems} */}
 
           <li className="font-semibold uppercase tracking-wider">
-            <Link to="/">Home</Link>
+            <NavLink to="/" className ={({isActive})=> isActive? 'text-yellow-600 underline-2' : ''}>Home</NavLink>
           </li>
           <li className="font-semibold uppercase tracking-wider">
             <Link>About</Link>
@@ -79,7 +84,7 @@ const Navbar = () => {
             </>
           ) : (
             <li className="font-semibold uppercase tracking-wider">
-              <Link to="/login">Login</Link>
+              <NavLink to="/login" className ={({isActive})=> isActive? 'text-yellow-600 underline-2' : ''}>Login</NavLink>
             </li>
           )}
         </ul>
