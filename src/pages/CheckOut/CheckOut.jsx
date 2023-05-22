@@ -40,7 +40,7 @@ const CheckOut = () => {
             alert('servece book successfully')
         }
     })
-
+    
   }
 
   return (
